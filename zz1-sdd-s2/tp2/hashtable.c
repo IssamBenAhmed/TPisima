@@ -1,19 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "hashtable.h"
+#define N 10
 
 list * listCreate() {
-	// TODO : question 1
 	return NULL;
 }
 
 hashtable * hashtableCreate(int n) {
-	// TODO : question 2
-	return NULL;
+	hashtable * H = (hashtable *)malloc(sizeof(hashtable));
+	if (H == NULL) return NULL;
+	
+	H->n = n;
+	H->tab = (list **)malloc(n * sizeof(list *));
+	if (H->tab == NULL) {
+		free(H);
+		return NULL;
+	}
+	
+	
+	for (int i = 0; i < n; i++) {
+		H->tab[i] = NULL;
+	}
+	
+	return H;
 }
 
 int hash(char * key, int n) {
-	// TODO : question 3
+	
 	return 0;
 }
 
