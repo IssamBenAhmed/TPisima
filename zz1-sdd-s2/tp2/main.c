@@ -23,3 +23,16 @@ int main(int argc, char ** argv) {
 	hashtableFree(h);
 	return 0;
 }
+
+// Test hash:
+// printf("hash(\"Alice\", 10) = %d\n", hash("Alice", 10));
+// printf("hash(\"Bob\", 10) = %d\n", hash("Bob", 10));
+// printf("hash(\"\", 10) = %d\n", hash("", 10));
+// printf("hash(NULL, 10) = %d\n", hash(NULL, 10));
+
+// Test listDisplay:
+// list * l = NULL;
+// l = listAdd(l, "Alice", "Dupont");
+// l = listAdd(l, "Bob", "Dupond");
+// l = listAdd(l, "Charles", "Dupon");
+// listDisplay(l);

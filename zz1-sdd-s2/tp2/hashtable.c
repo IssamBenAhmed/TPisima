@@ -27,12 +27,31 @@ hashtable * hashtableCreate(int n) {
 }
 
 int hash(char * key, int n) {
-	
-	return 0;
+	int k = 0;
+	if (key==NULL || n<=0){
+		return -1;
+	}
+	for (int i=0;key[i]!='\0';i++){
+		//k=k+octect du caractère key[i]
+		k=k+(unsigned char)key[i];
+	}
+	k=k%n;
+	return k;
 }
 
 void listDisplay(list * l) {
-	// TODO : question 4
+	list * cur = l;
+
+	printf("[");
+	for (int i=0;cur!=NULL;i++){
+		printf(" { %s, %s} ",cur->key,cur->value);
+		if (cur->next!=NULL)
+			printf(",");
+		cur=cur->next;
+	}
+	printf("]\n");
+	
+
 }
 
 void hashtableDisplay(hashtable * h) {
