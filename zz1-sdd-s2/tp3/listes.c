@@ -19,18 +19,39 @@ list * listAdd(list * l,int n){
 
 
 void listDisplay(list * l){
-      // TO DO question 2
+    if(l==NULL){
+        printf("NULL");
+    }
+    else{
+        listDisplay(l->next);
+        printf("%d ",l->value);
+    }
+
+
 }
 
 
 void listInverseDisplay(list * l){
-      // TO DO question 3
+       if(l==NULL) {
+        printf("NULL");
+    }
+    else {
+        printf("%d ",l->value);
+        listDisplay(l->next);
+    }
 
 }
 
 int listSearch(list * plist, int n){
-      // TO DO question 4
-      return 0;
+    if(plist!=NULL)
+        if(plist->value==n)
+            return 1;
+        else{
+            listSearch(plist->next,n);}
+    else{
+        return 0;
+    }
+
 }
 
 
