@@ -57,14 +57,28 @@ int listSearch(list * plist, int n){
 
 
 list * listMap(list* l , int (*f)(int)){
-      // TO DO question 5
-      return NULL;
+      if(l == NULL){
+        return NULL;
+      }
+      else{
+        return listAdd(listMap(l->next,f),f(l->value));
+      }
 
 }
 
 list * listFilter(list* l , int (*p)(int)){
-    // TO DO question 6
-    return NULL;
+    if(l==NULL){
+        return NULL;
+    }
+    else {
+        if(p(l->value)){
+            return listAdd(listFilter(l->next,p),l->value);
+            
+        }
+    }
+
+
+
 
 }
 
