@@ -21,7 +21,13 @@ int main(int argc, char ** argv) {
 	h = hashtableRehash(h, 20);
 	hashtableDisplay(h);
 	hashtableFree(h);
+	 list * l = NULL;
+    l = listAdd(l, "Alice", "Dupont");
+    l = listAdd(l, "Bob", "Dupond");
+    l = listAdd(l, "Charles", "Dupon");
+    listDisplay(l);
 	return 0;
+
 }
 
 // Test hash:
@@ -31,8 +37,4 @@ int main(int argc, char ** argv) {
 // printf("hash(NULL, 10) = %d\n", hash(NULL, 10));
 
 // Test listDisplay:
-// list * l = NULL;
-// l = listAdd(l, "Alice", "Dupont");
-// l = listAdd(l, "Bob", "Dupond");
-// l = listAdd(l, "Charles", "Dupon");
-// listDisplay(l);
+

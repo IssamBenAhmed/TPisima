@@ -55,7 +55,9 @@ void listDisplay(list * l) {
 }
 
 void hashtableDisplay(hashtable * h) {
-	// TODO : question 5
+	for(int i=0;i<h->n;i++){
+		listDisplay(h->tab);
+	}
 }
 
 list * listAdd(list * l, char * newK, char * newV) {

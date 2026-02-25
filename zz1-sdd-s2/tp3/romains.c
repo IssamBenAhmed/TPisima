@@ -20,10 +20,17 @@ int nombreRomainToDecimal(char* strRomain){
 	
 	printf("Entree dans nombreRomainToDecimal ,  chiffreRomain=%s\n",strRomain);
 	int decimal=0;
-
-	// TO DO question 1
-
-
+	if(strlen(strRomain)==1){
+		decimal=chiffreRomainToDecimal(strRomain[0]);
+	}
+	else{
+		if(chiffreRomainToDecimal(strRomain[1])>chiffreRomainToDecimal(strRomain[0])){
+			decimal=nombreRomainToDecimal(strRomain+1)-chiffreRomainToDecimal(strRomain[0]);
+		}
+		else{
+			decimal=nombreRomainToDecimal(strRomain+1)+chiffreRomainToDecimal(strRomain[0]);
+		}
+	}
 	printf("Sortie de nombreRomainToDecimal ,  chiffreRomain=%s , valeur retournee :%d\n",strRomain,decimal);
 	return decimal;
 }
