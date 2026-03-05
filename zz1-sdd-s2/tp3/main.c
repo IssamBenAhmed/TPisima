@@ -86,14 +86,16 @@ void test_listSearch()
 }
 
 // TO DO : question 5
-// Ecrire ici la fonction carre
+int carre(int n){
+	return n*n;
+}
 
 void test_listMap(){
 
 	list * l =liste_de_test();
 	printf("Liste des carres : ");
 
-	//TO DO : A compléter question 5
+	listDisplay(listMap(l,carre));
 
 
 	printf("\n");
@@ -102,15 +104,14 @@ void test_listMap(){
 }
 
 // TO DO : question 6
-// Ecrire ici la fonction sup3
+int sup3 (int n){
+	return n>3;
+}
 
 void test_listFilter(){
 	list * l =liste_de_test();
 	printf("Liste filtree : ");
-
-	//TO DO : A compléter question 6
-
-	
+	listDisplay(listFilter(l,sup3));
 	printf("\n");
 	listFree(l);
 
@@ -239,13 +240,13 @@ int main()
     //------------------------------------------------------------------
     // tests question 1 : Première fonction récursive (nombres romains )
     //------------------------------------------------------------------
-    test_romains();
+    //test_romains();
 
 
     //------------------------------------------------------------------
     // tests question 2 : Récursivité et listes
     //------------------------------------------------------------------
-	/*
+	
     test_listDisplay();
 	test_listInverseDisplay();
 	test_listSearch();
@@ -255,7 +256,7 @@ int main()
 	test_listFilter();
 
 	test_listSum();
-	test_listProd();
+	/*test_listProd();
 	test_listLen();
 
 	test_listInverse();*/

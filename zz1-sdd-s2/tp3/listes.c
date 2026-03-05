@@ -20,13 +20,13 @@ list * listAdd(list * l,int n){
 
 void listDisplay(list * l){
     if(l==NULL){
-        printf("NULL");
+        printf("NULL ");
     }
     else{
         listDisplay(l->next);
         printf("%d ",l->value);
     }
-
+    
 
 }
 
@@ -37,7 +37,7 @@ void listInverseDisplay(list * l){
     }
     else {
         printf("%d ",l->value);
-        listDisplay(l->next);
+        listInverseDisplay(l->next);
     }
 
 }
@@ -67,23 +67,24 @@ list * listMap(list* l , int (*f)(int)){
 }
 
 list * listFilter(list* l , int (*p)(int)){
-    if(l==NULL){
+    if(l == NULL){
         return NULL;
     }
-    else {
-        if(p(l->value)){
-            return listAdd(listFilter(l->next,p),l->value);
-            
-        }
+
+    if(p(l->value)){
+        return listAdd(listFilter(l->next, p), l->value);
     }
-
-
-
-
+    else{
+        return listFilter(l->next, p);
+    }
 }
 
 int listFold(list* l , int (*op)(int,int),int base){
-    // TO DO question 7
+    if(!l){
+        return base;
+    }
+    else return op(l->value,listFold(l->next,op,base));
+
       return 0;
 }
 
@@ -92,18 +93,30 @@ int listFold(list* l , int (*op)(int,int),int base){
 // Fonction opSum
 // .....
 
+int opSum(int i, int j){
+    return i+j;
+}
+
+
+
+
+
+
+
+
 int listSum(list* l ){
-    // TO DO question 7
-      return 0;
+    return listFold(l,opSum,0);
 }
 
 // TO DO  question 7
 // Fonction opProd
-// .....
+int opProd(int i,int j){
+    return i*j;
+}
 
 int listProd(list* l ){
-    // TO DO question 7
-      return 0;
+    return listFold(l,opProd,0);
+    
 }
 
 // TO DO  question 7

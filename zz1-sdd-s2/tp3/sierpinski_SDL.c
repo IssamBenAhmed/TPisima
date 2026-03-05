@@ -1,4 +1,4 @@
-/*
+
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -28,16 +28,16 @@ void dessineFractale(){
 void dessinerFenetre() 
 {
 
-/* on prépare/efface le renderer 
+/* on prépare/efface le renderer */
 SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 SDL_RenderClear(renderer);
 
-/* dessiner en blanc 
+/* dessiner en blanc */
 SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 
 dessineFractale();
 
-/* afficher le renderer dans la fenetre 
+/* afficher le renderer dans la fenetre */
 SDL_RenderPresent(renderer);
 }
 
@@ -62,15 +62,15 @@ int main_SDL(){
     if (window == 0) 
     {
         fprintf(stderr, "Erreur d'initialisation de la SDL : %s\n", SDL_GetError()); 
-        /* on peut aussi utiliser SLD_Log() 
+        /* on peut aussi utiliser SLD_Log() */
     }
 
     // SDL_Renderer *renderer;
 
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED ); /*  SDL_RENDERER_SOFTWARE 
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED ); /*  SDL_RENDERER_SOFTWARE */
     if (renderer == 0) {
         fprintf(stderr, "Erreur d'initialisation de la SDL : %s\n", SDL_GetError()); 
-        /* faire ce qu'il faut pour quitter proprement 
+        /* faire ce qu'il faut pour quitter proprement*/ 
     }
     dessinerFenetre();
     SDL_Delay(5000);
@@ -79,4 +79,3 @@ int main_SDL(){
     return 0;
 }
 
-*/

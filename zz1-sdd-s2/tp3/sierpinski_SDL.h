@@ -1,4 +1,4 @@
-/*#ifndef sierpinski_sdl_h
+#ifndef sierpinski_sdl_h
 #define sierpinski_sdl_h
 #include <stdio.h>
 #include <SDL2/SDL.h>
@@ -17,4 +17,4 @@ void dessinerFenetre() ;
 
 int main_SDL();
 
-#endif*/
+#endif
