@@ -121,26 +121,37 @@ int listProd(list* l ){
 
 // TO DO  question 7
 // Fonction opLen
-// .....
+int opLen(int acc, int x){
+    return acc+1;
+}
 
 int listLen(list* l ){
-    // TO DO question 7
-      return 0;
+      return listFold(l,opLen,0);
 }
 
 // concatene à l1 l'inverse de l2
 list * ajouteInverse(list * l1,list * l2){
-    // TO DO question 8
-      return NULL;
+    if (l2==NULL){
+        return l1;
+    }
+    else
+    {
+        list * nvL = malloc(sizeof(list));
+        nvL->next=l1;
+        nvL->value=l2->value;
+        return ajouteInverse(nvL,l2->next);
+    }
 }
 
 list* listInverse(list *l){
-    // TO DO question 8
-      return NULL;
+      return ajouteInverse(NULL,l);
 }
 
 
 
 void listFree(list * plist){
-    // TO DO question 9
+    if (plist != NULL) {
+        listFree(plist->next);
+        free(plist);
+    }
 }
