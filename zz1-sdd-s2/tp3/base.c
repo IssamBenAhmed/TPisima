@@ -24,7 +24,6 @@ void printBaseB(list * l){
 }
 
 int baseToDec(list* l){
-    
     int resultat;
     // TO DO : A compléter question 11
 
