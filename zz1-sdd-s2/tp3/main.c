@@ -256,15 +256,15 @@ int main()
 	test_listFilter();
 
 	test_listSum();
-	/*test_listProd();
+	test_listProd();
 	test_listLen();
 
-	test_listInverse();*/
+	test_listInverse();
 
     //------------------------------------------------------------------
     // tests question 3 : Changement de base
     //------------------------------------------------------------------
-	/*
+	
     test_printBaseB();
 	test_baseToDec();
 	test_baseToDec2();
@@ -273,12 +273,12 @@ int main()
 	test_global(55,2);
 	test_global(55,8);
 	test_global(55,16);
-    */
+    
 
-	/*setBase(2);
+	setBase(2);
 	test_baseToDec();
 	setBase(16);
-	test_baseToDec();*/
+	test_baseToDec();
 
 //------------------------------------------------------------------
 // tests question 4 : Problème des 8 dames

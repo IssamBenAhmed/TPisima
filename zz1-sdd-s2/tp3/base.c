@@ -18,35 +18,40 @@ void setBase(int b)
 }
 
 void printBaseB(list * l){
-    char symboles[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k'};
-    
-    // TO DO : A compléter question 10
+    char symboles[] = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k'};
+    if (l == NULL) {
+        printf("NULL");
+    }
+    else {
+        printf(" <- %c", symboles[l->value]);
+        printBaseB(l->next);
+    }
 }
 
 int baseToDec(list* l){
-    int resultat;
-    // TO DO : A compléter question 11
-
- 
-    return resultat;
+    if (l == NULL) {
+        return 0;
+    } else {
+        return l->value + base * baseToDec(l->next);
+    }
 }
 
-
+int opBase(int acc, int x) {
+    return acc * base + x;
+}
 
 int baseToDec2(list* l){
-    
-    // TO DO : A compléter question 11 (si vous voulez faire avec les deux méthodes)
-
- 
-    return 0;
+    list* liv = listInverse(l);
+    return listFold(liv, opBase, 0);
 }
 
 
-list* decToBase(int n ){
-    list*l;
-
-    // TO DO : A compléter question 12 
-    
-    
-    return l;
+list* decToBase(int n){
+    if (n < base) {
+        return listAdd(NULL, n);
+    } else {
+        return listAdd(decToBase(n / base), n % base);
+    }
 }
+
+

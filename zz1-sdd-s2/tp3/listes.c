@@ -20,7 +20,7 @@ list * listAdd(list * l,int n){
 
 void listDisplay(list * l){
     if(l==NULL){
-        printf("NULL ");
+        printf("NULL");
     }
     else{
         listDisplay(l->next);
@@ -43,26 +43,25 @@ void listInverseDisplay(list * l){
 }
 
 int listSearch(list * plist, int n){
-    if(plist!=NULL)
-        if(plist->value==n)
+    if(plist != NULL) {
+        if(plist->value == n)
             return 1;
-        else{
-            listSearch(plist->next,n);}
-    else{
-        return 0;
+        else
+            return listSearch(plist->next, n);
     }
+    return 0;
 
 }
 
 
 
 list * listMap(list* l , int (*f)(int)){
-      if(l == NULL){
-        return NULL;
-      }
-      else{
-        return listAdd(listMap(l->next,f),f(l->value));
-      }
+        if(l == NULL){
+                return NULL;
+        }
+        else{
+                return listAdd(listMap(l->next,f),f(l->value));
+        }
 
 }
 
@@ -70,11 +69,9 @@ list * listFilter(list* l , int (*p)(int)){
     if(l == NULL){
         return NULL;
     }
-
     if(p(l->value)){
         return listAdd(listFilter(l->next, p), l->value);
-    }
-    else{
+    } else {
         return listFilter(l->next, p);
     }
 }
@@ -116,7 +113,7 @@ int opProd(int i,int j){
 
 int listProd(list* l ){
     return listFold(l,opProd,0);
-    
+        return listFold(l,opProd,1);
 }
 
 // TO DO  question 7
