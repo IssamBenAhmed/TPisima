@@ -112,8 +112,7 @@ int opProd(int i,int j){
 }
 
 int listProd(list* l ){
-    return listFold(l,opProd,0);
-        return listFold(l,opProd,1);
+    return listFold(l,opProd,1);
 }
 
 // TO DO  question 7
