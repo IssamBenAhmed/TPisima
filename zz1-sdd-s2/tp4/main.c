@@ -50,4 +50,10 @@ void test_impression() {
 
 int main(int argc, char ** argv) {
   test_impression();
+   arbre * a=noeud('b',
+                feuille('a'),
+                noeud('d',
+                      feuille('c'),
+                      noeud('f', feuille('e'), feuille('g'))));
+  infixe_inverse(stdout,a);
 }

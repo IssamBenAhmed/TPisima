@@ -24,21 +24,13 @@ int est_feuille(arbre * a) {
 }
 
 void libere_arbre(arbre ** a){
-  if(a!=NULL){
-    libere_arbre(&((*a)->droite));
-    libere_arbre(&((*a)->gauche));
-    free((*a));
+  libere_arbre((*a)->droite);
+  libere_arbre((*a)->gauche);
+  free((*a));
   (*a)=NULL;
-}
 }
 
 void infixe_inverse(FILE * f, arbre * a) {
-  if (a!=NULL){
-    infixe_inverse(f,a->droite);
-    fprintf(f,"%c\n",a->data);
-    infixe_inverse(f,a->gauche);
-
-  }
 }
 
 void imprime_blancs(FILE * f, int niveau, int est_droit) {
