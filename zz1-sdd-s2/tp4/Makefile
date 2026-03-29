@@ -1,16 +1,22 @@
-CFILES = $(wildcard *.c)
-HFILES = $(wildcard *.h)
-OFILES = $(patsubst %.c,%.o,$(CFILES))
-GCC_FLAGS = -Wall -g
-LD_FLAGS = 
+# Makefile robuste pour tp4
+
+CC := gcc
+CFLAGS := -Wall -Wextra -g
+LDLIBS :=
+
+SRC := $(wildcard *.c)
+OBJ := $(SRC:.c=.o)
+
+.PHONY: all clean
 
 all: main
 
-%.o: %.c $(HFILES)
-	gcc $(GCC_FLAGS) -c $<
+main: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LDLIBS)
 
-main: $(OFILES) $(HFILES)
-	gcc $(LD_FLAGS) -o main $(OFILES)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	-rm $(OFILES)
+	find . -type f -name "*.o" -print0 | xargs -0 rm -f
+	rm -f main

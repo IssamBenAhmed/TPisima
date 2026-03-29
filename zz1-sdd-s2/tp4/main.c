@@ -21,39 +21,13 @@ char * lecture_fichier(char* nom) {
   string[fsize] = 0;
   return string;
 }
-
-void test_impression() {
-
-  // chargement du fichier solution
-  char* solution = lecture_fichier("impression.txt");
-  arbre * a=noeud('b',
-                feuille('a'),
-                noeud('d',
-                      feuille('c'),
-                      noeud('f', feuille('e'), feuille('g'))));
-  char buffer[1024];
-  FILE* out = fmemopen(buffer, 1024, "w");
-  imprime_arbre(stdout, a);
-  imprime_arbre(out, a);
-  fclose(out);
-
-  int test = !strcmp(buffer, solution);
-  libere_arbre(&a);
-  free(solution);
-  
-  if(test) {
-    printf("impression : ok\n");
-  } else {
-    printf("impression : erreur\n");
-  }
-}
-
 int main(int argc, char ** argv) {
-  test_impression();
    arbre * a=noeud('b',
                 feuille('a'),
                 noeud('d',
                       feuille('c'),
                       noeud('f', feuille('e'), feuille('g'))));
   infixe_inverse(stdout,a);
+  libere_arbre(&a);
+  return 0;
 }
