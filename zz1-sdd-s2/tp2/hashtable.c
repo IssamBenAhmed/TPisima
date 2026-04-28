@@ -43,7 +43,7 @@ void listDisplay(list * l) {
 	list * cur = l;
 
 	printf("[");
-	for (int i=0;cur!=NULL;i++){
+	while ( cur != NULL ) {
 		printf(" { %s, %s} ",cur->key,cur->value);
 		if (cur->next!=NULL)
 			printf(",");
@@ -55,14 +55,18 @@ void listDisplay(list * l) {
 }
 
 void hashtableDisplay(hashtable * h) {
-	for(int i=0;i<h->n;i++){
-		listDisplay(h->tab);
-	}
+    for(int i = 0; i < h->n; i++) {
+        printf("%d : ", i);
+        listDisplay(h->tab[i]);
+    }
 }
 
 list * listAdd(list * l, char * newK, char * newV) {
-	// TODO : question 6
-	return NULL;
+	list * newz = malloc(sizeof(list));
+	newz->key=newK;
+	newz->value=newV;
+	newz->next=l;
+	return newz;
 }
 
 char * listSearch(list * l, char * k) {

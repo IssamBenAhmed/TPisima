@@ -27,10 +27,44 @@ liste * cree_liste(arbre * a, int poids, liste * suivant) {
 }
 
 liste * genere_liste(char * s) {
-  return NULL;
+  int tab[256]={0};
+
+  for(int i=0;s[i]!='\0';i++){
+    tab[(unsigned char)s[i]]++;
+  }
+
+  liste * L = NULL;
+
+  for(int k=0;k!=256;k++){
+
+    if (tab[k]!=0){
+
+      L->data->poids=tab[k];
+      L->data->element->data=(char)k;
+      L=L->suivant;
+    }
+  }
+  return L;
 }
 
 arbrepoids * extrait_min(liste ** l) {
+  if (*l!=NULL){
+    int minpoids = (*l)->data->poids;
+    arbrepoids * minarbre = (*l)->data;
+     
+    (*l)=(*l)->suivant;
+
+    for(int i=0;(*l)!=NULL;i++){
+      if((*l)->data->poids<minpoids){
+        minpoids=(*l)->data->poids;
+        minarbre=(*l)->data;
+      }
+
+      (*l)=(*l)->suivant;
+
+    }
+    
+  }
   return NULL;
 }
 

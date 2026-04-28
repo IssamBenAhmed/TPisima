@@ -6,7 +6,7 @@ int main(int argc, char ** argv) {
 	hashtable * h = hashtableCreate(10);
 	printf("Hashtable vide :\n");
 	hashtableDisplay(h);
-	printf("Hashtable sans collision :\n");
+	/*printf("Hashtable sans collision :\n");
 	hashtableAdd(h, "Alice", "Dupont");
 	hashtableAdd(h, "Bob", "Dupond");
 	hashtableAdd(h, "Charles", "Dupon");
@@ -26,7 +26,7 @@ int main(int argc, char ** argv) {
     l = listAdd(l, "Bob", "Dupond");
     l = listAdd(l, "Charles", "Dupon");
     listDisplay(l);
-	return 0;
+	return 0;*/
 
 }
 
